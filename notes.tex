@@ -1,0 +1,56 @@
+% LATEX TEMPLATE 
+% adapted https://infinitedescent.xyz/latex/ by wade
+% other minor adjustments cited below
+
+\documentclass[11pt]{article}
+
+% Edit the following to change the title, author name and date
+\title{Reasoning with Data Notes}
+\author{saffron\_}
+\date{}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+% Page setup
+\setlength{\parskip}{10pt}
+\setlength{\parindent}{0pt}
+\geometry{
+    paper={letterpaper}, % Change to 'a4paper' for A4 size
+    marginratio={1:1},
+    margin={1.25in}
+}
+
+% custom for this document
+\newcommand{\addsection}[1]{\addcontentsline{toc}{section}{#1}\section*{#1}}
+\newcommand{\bb}[1]{\mathbb{#1}} 
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\PreIm}{PreIm}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Start of document body %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\addsection{yipee}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% End of document body   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
