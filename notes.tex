@@ -47,9 +47,93 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage
-\addsection{yipee}
+\addsection{Course Summary}
+\begin{itemize}
+  \item see \url{lecture1written.pdf}
+\end{itemize}
 
-
+\addsection{Course}
+EDA for one variable categorical data
+\begin{itemize}
+  \item population: complete set on interest (eg all US workers). can't be measured perfectly
+  \item sample: subset of pop that can actually be obtained
+  \item parameter: summary of population (eg average weight). also can't be measured
+  \item statistic: estimation of parameter using sample.
+  \item inference: specifying estimate of a parameter (ie gving estimate and measure of how far off it is)
+  \item individuals/units/cases: objects described in dataset
+  \item variable: column of spreadsheet, something measured
+  \item quantitative: numerical (eg age)
+  \item categorical/qualitative: not numereical (eg ethnicity)
+  \item frequency table: show how often each \emph{categorical} variable shows up
+  \begin{itemize}
+    \item relative freq. table: how percent often they show up, adding up to 1 or 100\%: best summary of a categorical variable
+  \end{itemize}
+  \item frequency/percent frequency bar graphs: to visualize categorical data. v. similar to their freq table variants.
+  \item pie graph: to visualize a \emph{single} categorical variable, with each slice being a category. 
+  \item distribution: representation of data that shows what values the variable takes and how often
+\end{itemize}
+EDA for 1-variable quantitative data
+\begin{itemize}
+  \item grouped frequency/grouped relative frequency table: for one quantitative var. boring version of a histogram. 
+  \item histogram: for one quantitative variable. visualizes a grouped (rel.) freq table.
+  \item distribution of one quantitative var (anal. doesn't really hold up for qualitative)
+  \begin{itemize}
+    \item modality: how many `clusters'? (eg unimodal/bimodal/etc)
+    \item symmetric/skewness? (skew right means tail is to right)
+    \item center: mean/median? using mode is cursed but you do you
+    \item spread: std deviation (usually, $\frac{2}{3}$ of values are 1 stddev away from mean)
+    \item outliers?
+  \end{itemize}
+  \item fun facts: variance: square of std dev. easier in formulas because it removes the square root, but in real world, std dev is preferred because it has same units as the data
+  \item box plot: other way to graph quantiative data (using min, first quartile, median, third quartile, max)
+  \begin{itemize}
+    \item interquartile range (IQR): difference between quartiles, a measure of spread. is rough, not as useful as stddev.
+    \item shows less data than histogram, so best for concise comparison of \emph{multiple} distributions (see section on 2-variable EDA)
+  \end{itemize}
+\end{itemize}
+EDA for 2-variable data
+\begin{itemize}
+  \item relationship/association: one variable can tell you about another
+  \item explanatory variable: ``input'' variable, the x-axis
+  \item response variable: ``output'' variable, the y-axis
+  \item if we need analysis from explanatory $\rightarrow$ response
+  \begin{itemize}
+    \item categorical $\rightarrow$ quantiative: side by side boxplots
+    \item categorical $\rightarrow$ categorical: contingency table
+    \item quantitative $\rightarrow$ quantiative: scatterplots
+    \item quantiative $\rightarrow$ categorical: outside scope of this course 
+  \end{itemize}
+  TODO lec 5-6-7 for summarizing above
+\end{itemize}
+Study Design
+\begin{itemize}
+  \item no matter what, we want to consider and get\dots
+  \begin{itemize}
+    \item sensitivity: low random variation (use a large sample size)
+    \item validity: trustworthy estimates and predictions
+    \begin{itemize}
+      \item consider and declare outliers. remove them if needed, but with caution!
+      \item beware extrapolation outside range of data that produced the model
+      \item validate model (eg check for linearity if you use linear regression)
+    \end{itemize} 
+    \item generalizability: no bias aka systemic error (use random sampling)
+  \end{itemize}
+  \item and if we have 2 or more variable relationships\dots
+  \begin{itemize}
+    \item causality: no lurking/confounding variables; if we want to find causation and not just correlation (randomized assignment of explanatory variable)
+  \end{itemize}
+  \item bias/systemic error: consistent tendency toward inaccurate outcomes
+  \begin{itemize}
+    \item instrument bias if instrument is set wrong (can be social instrument such as misleading survey)
+    \item sampling bias if sample is systematically not representative 
+    \item remove sampling bias via random sampling
+  \end{itemize}
+  \item simple random sampling (SRS): every individual has same chance to be chosen as any oher; every pair same chance as other pair; etc
+\end{itemize}
+Elemetary Probability
+\begin{itemize}
+  \item TODO lecture 9 onwards
+\end{itemize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% End of document body   %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
