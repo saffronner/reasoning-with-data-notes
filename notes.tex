@@ -53,7 +53,8 @@
 \end{itemize}
 
 \addsection{Course}
-EDA for one variable categorical data
+\subsection*{Exploratory Data Analysis}
+EDA for 1-variable categorical data
 \begin{itemize}
   \item population: complete set on interest (eg all US workers). can't be measured perfectly
   \item sample: subset of pop that can actually be obtained
@@ -63,15 +64,16 @@ EDA for one variable categorical data
   \item individuals/units/cases: objects described in dataset
   \item variable: column of spreadsheet, something measured
   \item quantitative: numerical (eg age)
-  \item categorical/qualitative: not numereical (eg ethnicity)
+  \item categorical/qualitative: not numerical (eg ethnicity)
   \item frequency table: show how often each \emph{categorical} variable shows up
   \begin{itemize}
     \item relative freq. table: how percent often they show up, adding up to 1 or 100\%: best summary of a categorical variable
   \end{itemize}
-  \item frequency/percent frequency bar graphs: to visualize categorical data. v. similar to their freq table variants.
+    \item frequency/percent/relative (add to 1) frequency bar graphs: to visualize categorical data. v. similar to their freq table variants.
   \item pie graph: to visualize a \emph{single} categorical variable, with each slice being a category. 
-  \item distribution: representation of data that shows what values the variable takes and how often
+  % \item distribution: representation of data that shows what values the variable takes and how often
 \end{itemize}
+\newpage
 EDA for 1-variable quantitative data
 \begin{itemize}
   \item grouped frequency/grouped relative frequency table: for one quantitative var. boring version of a histogram. 
@@ -80,8 +82,14 @@ EDA for 1-variable quantitative data
   \begin{itemize}
     \item modality: how many `clusters'? (eg unimodal/bimodal/etc)
     \item symmetric/skewness? (skew right means tail is to right)
-    \item center: mean/median? using mode is cursed but you do you
-    \item spread: std deviation (usually, $\frac{2}{3}$ of values are 1 stddev away from mean)
+    \item center: mean ($\overline{x}$)
+    \begin{itemize}
+      \item median if heavy outliers. using mode is cursed but you do you
+    \end{itemize}
+    \item spread: standard deviation ($S$) (usually, $\frac{2}{3}$ of values are 1 stddev away from mean)
+    \begin{itemize}
+      \item interquartile range (IQR) if heavy outliers.
+    \end{itemize}
     \item outliers?
   \end{itemize}
   \item fun facts: variance: square of std dev. easier in formulas because it removes the square root, but in real world, std dev is preferred because it has same units as the data
@@ -91,6 +99,8 @@ EDA for 1-variable quantitative data
     \item shows less data than histogram, so best for concise comparison of \emph{multiple} distributions (see section on 2-variable EDA)
   \end{itemize}
 \end{itemize}
+
+\newpage
 EDA for 2-variable data
 \begin{itemize}
   \item relationship/association: one variable can tell you about another
@@ -99,42 +109,63 @@ EDA for 2-variable data
   \item if we need analysis from explanatory $\rightarrow$ response
   \begin{itemize}
     \item categorical $\rightarrow$ quantiative: side by side boxplots
+    \begin{itemize}
+      \item more difference if boxes are futher apart on ``y-axis''
+      \item summaries: numerical summaries of response for each category
+    \end{itemize}
     \item categorical $\rightarrow$ categorical: contingency table
+    \begin{itemize}
+      \item summaries: conditional percents of responses, conditioned on explanatory (ie what percent of people from Cali are stat majors?)
+    \end{itemize}
     \item quantitative $\rightarrow$ quantiative: scatterplots
+    \begin{itemize}
+      \item describe: direction, form, outliers
+      \item summaries (only if reasonably linear): correlation coefficient ($R$), least squares regression line ($\hat{y} = b_0 + b_1X$)
+    \end{itemize}
     \item quantiative $\rightarrow$ categorical: outside scope of this course 
   \end{itemize}
-  TODO lec 5-6-7 for summarizing above
 \end{itemize}
-Study Design
+
+\newpage
+\addsection{Study Design}
 \begin{itemize}
   \item no matter what, we want to consider and get\dots
   \begin{itemize}
-    \item sensitivity/statistical significance: low random variation (use a large sample size)
+    \item reliability, statistical significance: low random variation/error (use a large sample size)
+    \begin{itemize}
+      \item can be measured with stddev
+    \end{itemize}
     \item validity: trustworthy estimates and predictions
     \begin{itemize}
       \item consider and declare outliers. remove them if needed, but with caution!
       \item beware extrapolation outside range of data that produced the model
       \item validate model (eg check for linearity if you use linear regression)
     \end{itemize} 
-    \item generalizability: no bias aka systemic error (use random sampling)
+    \item generalizability: no bias aka systemic error 
+    % (use random sampling) TODO merge with below
+    \begin{itemize}
+      \item called instrument bias if instrument is set wrong (can be social instrument such as misleading survey)
+      \begin{itemize}
+        \item remove via resetting instrument (reset scale, rewrite survey)
+      \end{itemize}
+      \item called sampling bias if sample is systematically not representative 
+      \begin{itemize}
+        \item remove via random sampling. such as simple random sampling (SRS): every individual has same chance to be chosen as any other; every pair same chance as other pair; etc
+      \end{itemize}
+    \end{itemize}
   \end{itemize}
   \item and if we have 2 or more variable relationships\dots
   \begin{itemize}
     \item causality: no lurking/confounding variables; if we want to find causation and not just correlation (randomized assignment of explanatory variable)
+    \begin{itemize}
+        \item experimental study: study where lurking/confounding variables are removed
+        \item observational study: not experimental. subjects decided which treatments to get (eg survey vitamin c usage vs flu symptoms)
+        \item placebo control group: `non-active' treatment to avoid placebo effect
+        \item `double blind': neither the researchers nor the subjects know which treatment they are receiving
+    \end{itemize}
   \end{itemize}
-  \item bias/systemic error: consistent tendency toward inaccurate outcomes
-  \begin{itemize}
-    \item instrument bias if instrument is set wrong (can be social instrument such as misleading survey)
-    \item sampling bias if sample is systematically not representative 
-    \item remove sampling bias via random sampling
-  \end{itemize}
-  \item simple random sampling (SRS): every individual has same chance to be chosen as any oher; every pair same chance as other pair; etc
-  \item placebo control group: `non-active' treatment to avoid placebo effect
-  \item `double blind': neither the researchers nor the subjects know which treatment they are receiving
-  \item observational study: subjects decided which treatments to get (eg survey vitamin c usage vs flu symptoms)
-  \item experimental study: researchers decide how subjects get treatments (randomized ie random assignment for best results)
 \end{itemize}
-Elemetary Probability
+\addsection{Elementary Probability}
 \begin{itemize}
   \item TODO lecture 9 onwards
 \end{itemize}
