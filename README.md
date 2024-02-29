@@ -1,1 +1,1 @@
-Notes for Reasoning with Data, a introductory stats course at CMU.
+Notes for Reasoning with Data, an introductory stats course at CMU.
