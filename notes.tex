@@ -52,8 +52,7 @@
   \item see \url{lecture1written.pdf}
 \end{itemize}
 
-\addsection{Course}
-\subsection*{Exploratory Data Analysis}
+\addsection{Exploratory Data Analysis}
 EDA for 1-variable categorical data
 \begin{itemize}
   \item population: complete set on interest (eg all US workers). can't be measured perfectly
@@ -167,10 +166,150 @@ EDA for 2-variable data
     \end{itemize}
   \end{itemize}
 \end{itemize}
+
+\newpage
 \addsection{Elementary Probability}
 \begin{itemize}
-  \item TODO lecture 9 onwards
+  \item probablility: measure of variation due to a random phenomenon
+  \item random: produced so that probability applies. satisfies:
+  \begin{itemize}
+    \item equal likelihood ($A$'s selection is as likely as $B$'s)
+    \item independence ($A$'s selection doesn't influence $B$'s)
+  \end{itemize}
+  \item coin: P(heads)$ = 0.5$
+  \item relative frequency: if selections are random (eq likelihood and independent), 
+  \[ \text{P(outcome)} = \frac{\text{\# of ways outcome occurs}}{\text{\# of possible outcomes}} \]
+  \begin{itemize}
+    \item long-run approx. can be as precise as desired: Law of Large Numbers
+    \item not replacing violates independence
+    \begin{itemize}
+      \item consider a bag with a blue and red ball. selecting blue and not putting it back makes P(red) $ = 1$.
+      \item but this is common---a pollster doesn't survey two houses twice
+    \end{itemize}
+    \item not replacing is fine if population $\ge$ 10 or 20 times the sample
+    \begin{itemize}
+      \item consider 2000 blue, 2000 red. selecting blue makes P(red) $\approx 0.5$
+    \end{itemize}
+  \end{itemize}
+  \item probablility experiment: an outcome's success/failure varies
+  \begin{itemize}
+    \item eg flipping a coin: outcome (like get heads) varies
+    \item trials: different ``runs'' of a probability experiment
+  \end{itemize}
+  \item disjoint/mutually exclusive: $A \cap B$ is empty
+  \item elementary outcomes: irreducible for assigning probabilities. mutually disjoint.
+  \item sample space: $S$, the set of all elementary outcomes in a probability experiment
+  \item complement: $A^C$, ``opposite'' of a probability. $A + A^C = 1$.
+  \item intersection: $\cap$, ``and'' of two probabilities. middle of venn diagram.
+  \item union: $\cup$, ``or'' of two probabilities. all circles' overlap area.
+  \begin{itemize}
+    \item P$(A \cup B) = \text{P}(A) + \text{P}(B) - \text{P}(A \cap B)$
+  \end{itemize}
+  \item joint probability tables
+  \begin{itemize}
+    \item each inner box is an elementary outcome
+    \item rows sum to row marginal probabilities, same with columns
+    \item 2x2 tables can represent venn diagrams
+  \end{itemize}
+  \newpage
+  \item conditional probability ($A$, if we know that $B$):
+  \begin{itemize}
+    \item P$(A \text{ given } B) = \text{P}(A \mid B) = \text{P}(A \cap B) \div \text{P}(B)$
+    \item for a d20, P($4 \mid \text{even}$) $= 0.1$
+    \item take from box and margin of a joint probability table
+  \end{itemize}
+  \item statistically independent: unassociated events. if you know the outcome of one event, it doesn't change the probability of the other.
+  \begin{itemize}
+    \item with variables: association b/t $A$ and $B$ is nearly what is expected from chance
+    \item with sampling: any person similarly likely to be selected, regardless of previous selection
+    \item $A$ and $B$ are independent
+    \begin{itemize}
+      \item iff $\text{P}(B\mid A) = \text{P}(B\mid A^C) = \text{P}(B)$
+      \item iff $\text{P}(A \cap B) = \text{P}(A) \cdot \text{P}(B)$
+    \end{itemize}
+  \end{itemize}
 \end{itemize}
+\addsection{Probability Models of Data}
+\begin{itemize}
+  \item random variable: outcome of randomness that takes on numerical values
+  \item discrete rv: takes on ``separated'' outcomes. modeled with table or rel-freq histogram
+  \item continuous rv: takes on an interval of outcomes. modeled with density curve
+  \item rv example: cars occupancy
+  \begin{enumerate}
+    \item define prob. experiment: randomly select car on road
+    \item define rv:  let $X = $ number of people in car
+    \item assign probabilites to $X$. denote prob. of $X=1$ as P($X=1$)
+  \end{enumerate}
+  \item Binomial Counts ``Experiment''/Study/Trial
+  \begin{itemize}
+    \item conditions:
+    \begin{enumerate}[(a)]
+      \item fixed sample size $n$ for every run of study
+      \item two categories (success/failure) for each observation
+      \item observations must succeed or fail independantly
+      \item fixed prob $p$ of success for each observation
+    \end{enumerate}
+    \item conditions c and d are guaranteed if selections are random 
+    \item the count of successes in $n$ trials is a discrete rv $X$, and follows the Binomial Distribution (ie, $X$ is binomial. see by graphing the histogram)
+    \item P($X = x$) = $_nC_x \cdot p^x \cdot (1-p)^{n-x}$ 
+    \item binomial coefficient $_nC_k = C^n_k = \binom{n}{k} = \frac{n!}{x!(n-x)!}$ (recall $0! = 1$)
+    \item eg: 8 rand selected lab animals get vaccine w/ prevention rate of 40\% and then are infected. Then $X =$ surviving animals out of $n = 8$ with $p = 0.4$.
+  \end{itemize}
+  \newpage
+  \item density curve
+  \begin{itemize}
+    \item graph a histogram, imagine a idealized curve fitting it
+    \begin{itemize}
+      \item idealized curve means true populations, so variables are greek letters
+      \item mean $= \mu$ (mu)
+      \item stddev $= \sigma$ (sigma)
+    \end{itemize}
+    \item area = proportion of observations = relative freq = probability
+    \item area = 1
+    \item exponential distribution
+    \begin{itemize}
+      \item let $X$ be the time until the next event, with events occuring randomly with a mean waiting time $\lambda$.
+      \item denoted $X \sim \text{Exp}(\lambda)$
+      \item fun fact: this is graphed $f(x) = \lambda e^{-\lambda x}$
+      \item eg: time until next earthquake, time until a phone call ends
+    \end{itemize}
+    \item uniform distribution
+    \begin{itemize}
+      \item a process produces values $\in [a,b]$ with equal likelihood.
+      \item denoted $X \sim \text{Uniform}(a,b)$
+      \item fun fact: this is graphed $f(x) = \frac{1}{b-a}$ for $x\in [a,b]$, $f(x) = 0$ elsewhere
+      \item eg: result of dice roll
+    \end{itemize}
+    \item normal/gaussian distribution
+    \begin{itemize}
+      \item models result of mixing many independant factors and Central Lim Thrm
+      \item denoted $X \sim \text{N}(\mu = u, \sigma = s)$
+      \item fun fact: these are variations on the graph $f(x) = e^{-x^2}$
+      \item eg: human height
+      \item points of inflection are 1 stddev away from mean
+      \item 68/95/99.7 percent of population falls within 1/2/3 stddev of mean
+    \end{itemize}
+    \item standard normal distribution
+    \begin{itemize}
+      \item for discussing probability on normal distributions: on all normal curves, portions with the same $Z$ score have the same area.
+      \item standardized/$Z$ score: stddevs from mean for a number
+      \begin{itemize}
+        \item $Z = \frac{\text{observation} - \mu}{\sigma}$
+      \end{itemize}
+      \item $\text{N}(\mu=0, \sigma=1)$ is already standardized. we may denote $Z \sim \text{N}(0,1)$
+      \item eg: consider adult male weight $X$.
+      \begin{itemize}
+        \item we know $X \sim \text{N}(\mu=165, \sigma=30)$
+        \item if P weighs 202 pounds, how unusual are they?
+        \item $Z = \frac{202 - 165}{30} = 1.23$ and $\text{P}(X < 202) = \text{P}(Z<1.23)=0.8907$.
+      \end{itemize}
+      \item $Z$ score tables and such exist for these calculations
+      \item be able to calculate: $Z$ score to prob, prob to $Z$ score, stdizing to find prob, unstdizing to find score (see Lecture 14 notes)
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+\addsection{Sampling Distribution of a Statistic: The Probability Model of Sample Mean and the CENTRAL LIMIT THEOREM}
+TODO
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% End of document body   %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
