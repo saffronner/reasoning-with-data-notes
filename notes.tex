@@ -266,7 +266,7 @@ good luck on exam 1 $<$3
       \item stddev $= \sigma$ (sigma)
     \end{itemize}
     \item area = proportion of observations = relative freq = probability
-    \item area = 1
+    \item total area = 1
     \item exponential distribution
     \begin{itemize}
       \item let $X$ be the time until the next event, with events occuring randomly with a mean waiting time $\lambda$.
@@ -309,8 +309,37 @@ good luck on exam 1 $<$3
     \end{itemize}
   \end{itemize}
 \end{itemize}
-\addsection{Sampling Distribution of a Statistic: The Probability Model of Sample Mean and the CENTRAL LIMIT THEOREM}
-TODO
+\addsection{Sampling Distribution of a Statistic}
+\begin{itemize}
+  \item sampling distribution of a statistic: the probability distribution of all possible values of a statistic (from same sample size, same population)
+  \begin{itemize}
+    \item characterized by center, spread, shape
+  \end{itemize}
+  \item sampling distribution of $\overline{X}$, the mean
+  \begin{itemize}
+    \item center: if sampling is random, then mean of sample is the population mean. ie,
+    \[ \mu_{\overline{x}} = \mu \text{ if sampling is random}\]
+    \item spread: if sampling is random and outcomes are statistically independant (eg sampling with replacement or infinitely large pop), then 
+    \[ \sigma_{\overline{x}}=\frac{\sigma}{\sqrt{n}} \]
+    notice: this mathematically shows our intuition that larger sample size $n$ means less random variation/spread
+
+    notice: sampling variability depends on sample size, not population size.
+    \item shape: if sample is large ($n\ge 30$), then by the Central Limit Theorem, the sampling distribution of $\overline{X}$ approaches the normal distribution. (resembles population otherwise)
+    \item lightbulb example problem in Lecture 16. Note AFSOC for inference.
+  \end{itemize}
+  \item sampling distribution of $\hat{P}$, proportion
+  \begin{itemize}
+    \item consider a binomial study with sample size $n$ and success probability $p$. then,
+    \item center: 
+    \[ \mu_{\hat{p}} = p \]
+    \item spread: 
+    \[ \sigma_{\hat{p}} = \sqrt{\frac{(p)(1-p)}{n}} \]
+    \item shape: if $np$ and $n(1-p)$ both $\ge 10$, then by the Central Limit Theorem, $\hat{P}$ approaches the normal distribution. (resembles population otherwise)
+    \item coinflip example problem in Lecture 18.
+  \end{itemize}
+\end{itemize}
+good luck on exam 2 $<$3
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% End of document body   %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
