@@ -340,6 +340,46 @@ good luck on exam 1 $<$3
 \end{itemize}
 good luck on exam 2 $<$3
 
+\newpage
+\addsection{Formal Inference Summary}
+\begin{itemize}
+  \item we study two branches of formal inference:
+  \begin{itemize}
+    \item confidence intervals: what are most likely values of a parameter?
+    \item hypothesis/significance testing: what is the likelihood of a parameter to be a value?
+  \end{itemize}
+\end{itemize}
+
+\addsection{Confidence Intervals}
+\begin{itemize}
+  \item Theory: $\overline{x}$ is ``probably'' somewhat ``close'' to $\mu$.
+  \begin{itemize}
+    \item how probable? confidence level
+    \item how close? margin of error
+  \end{itemize}
+  \item if random sampling, stat. independant, normal, then the confidence interval is
+  \[ \overline{X} \pm Z_\text{critical} \frac{\sigma}{\sqrt{n}} \]
+  \begin{itemize}
+    \item where $n=$ sample size, $\overline{X}=$ sample mean, $\sigma=$ assumed population stdddev, $Z_\text{c}=1.645$ for $C=90\%$, $Z_\text{c}=2$ for $C=95\%$, $Z_\text{c}=3$ for $C=99.7\%$, etc
+    \item eg: $\approx 95 \%$ of $\overline{x}$'s are within $\pm 2 \sigma_{\overline{x}}$
+  \end{itemize}
+  \item similarly, if binomial (in particular, random sampling and independent) and normal, the confidence interval is
+  \[ \hat{p} = Z_\text{critical} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} \]
+\end{itemize}
+
+\addsection{Hypothesis Testing}
+\begin{enumerate}
+  \item State Hypotheses
+  \begin{itemize}
+    \item null: $\mu$ = value
+    \item alt: $\mu$ <, >, or $\ne$ value
+  \end{itemize}
+  \item choose $\alpha$ (usually $0.01$ or $0.05$)
+  \item perform study, get sample statistic, get $p$ value of that sample statistic
+  \item conclusion: if $p < \alpha$, this is very unlikely. we reject the null hypothesis
+  \item state in context: what does parameter represent? what is the likely value/why?
+\end{enumerate}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% End of document body   %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
