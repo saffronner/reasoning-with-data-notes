@@ -381,6 +381,26 @@ good luck on exam 2 $<$3
   \begin{itemize}
     \item ie: Hypothesis test says do not reject $H_0 \Leftrightarrow H_0$ value is inside confidence interval
   \end{itemize}
+  \item TODO formal template for writing this. an example on lec24 p5 says ``since the p value is not less than0.05, we do not reject the null hypo. [explain what this means]''
+  \newpage
+  \item T-Test for mean when sigma unknown
+  \begin{itemize}
+    \item we instead use sample stddev, $S$.
+    \item like how we call $\frac{\sigma}{\sqrt{n}}$ $\sigma_{\overline{x}}$, we call $\frac{S}{\sqrt{n}}$ standard error
+    \item notice how similar our equations are
+    \item hypothesis test for a mean
+    \begin{itemize}
+      \item test stat $= t = \frac{\overline{X}-\mu_{\text{null}}}{S / \sqrt{n}}$ (``stderrs away from mean'' instead of stddevs away from mean)
+    \end{itemize}
+    \item confidence interval for a mean
+    \begin{itemize}
+      \item $\overline{X} \pm t_{\text{critical}}\cdot \frac{S}{\sqrt{n}}$
+      \item note: $t_{\text{critical}}$ is a bit over 2 for $95\%$ because the t distribution is fatter at tails than the normal
+    \end{itemize}
+    \item instead of $n\ge 30$ for normality, you may inspect the distribution. since t-distribution is robust, vauge normality is even fine as samples sizes increase (as long as no severe outliers). ie, if $n\ge 40$ or so, t dist is valid regardless of shape
+    \item t approaches norm distribution as $n$ increases.
+  \end{itemize}
+  \item what the FUCK are lect 25-6 cooking? about tests for two independent means and proportions. do you just get the t or z scores out of thin air? aka from isle.stat.cmu.edu?
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
