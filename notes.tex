@@ -66,7 +66,7 @@ EDA for 1-variable categorical data
   \item inference: specifying estimate of a parameter (ie gving estimate and measure of how far off it is)
   \item individuals/units/cases: objects described in dataset
   \item variable: column of spreadsheet, something measured
-  \item quantitative: numerical (eg age)
+  \item quantitative: numerical (eg age) 
   \item categorical/qualitative: not numerical (eg ethnicity)
   \item frequency table: show how often each \emph{categorical} variable shows up
   \begin{itemize}
@@ -96,7 +96,7 @@ EDA for 1-variable quantitative data
     \item outliers?
   \end{itemize}
   \item fun facts: variance: square of std dev. easier in formulas because it removes the square root, but in real world, std dev is preferred because it has same units as the data
-  \item box plot: other way to graph quantiative data (using min, first quartile, median, third quartile, max)
+  \item box plot: other way to graph quantitative data (using min, first quartile, median, third quartile, max) 
   \begin{itemize}
     \item interquartile range (IQR): difference between quartiles, a measure of spread. is rough, not as useful as stddev.
     \item shows less data than histogram, so best for concise comparison of \emph{multiple} distributions (see section on 2-variable EDA)
@@ -111,7 +111,7 @@ EDA for 2-variable data
   \item response variable: ``output'' variable, the y-axis
   \item if we need analysis from explanatory $\rightarrow$ response
   \begin{itemize}
-    \item categorical $\rightarrow$ quantiative: side by side boxplots
+    \item categorical $\rightarrow$ quantitative: side by side boxplots
     \begin{itemize}
       \item more difference if boxes are futher apart on ``y-axis''
       \item summaries: numerical summaries of response for each category
@@ -120,12 +120,12 @@ EDA for 2-variable data
     \begin{itemize}
       \item summaries: conditional percents of responses, conditioned on explanatory (ie what percent of people from Cali are stat majors?)
     \end{itemize}
-    \item quantitative $\rightarrow$ quantiative: scatterplots
+    \item quantitative $\rightarrow$ quantitative: scatterplots
     \begin{itemize}
       \item describe: direction, form, outliers
       \item summaries (only if reasonably linear): correlation coefficient ($R$), least squares regression line ($\hat{y} = b_0 + b_1X$)
     \end{itemize}
-    \item quantiative $\rightarrow$ categorical: outside scope of this course 
+    \item quantitative $\rightarrow$ categorical: outside scope of this course 
   \end{itemize}
 \end{itemize}
 
@@ -400,8 +400,39 @@ good luck on exam 2 $<$3
     \item instead of $n\ge 30$ for normality, you may inspect the distribution. since t-distribution is robust, vauge normality is even fine as samples sizes increase (as long as no severe outliers). ie, if $n\ge 40$ or so, t dist is valid regardless of shape
     \item t approaches norm distribution as $n$ increases.
   \end{itemize}
-  \item what the FUCK are lect 25-6 cooking? about tests for two independent means and proportions. do you just get the t or z scores out of thin air? aka from isle.stat.cmu.edu?
+  \item Use test for two independent means when wts relationship between \emph{two categorical} explantories and \emph{one quantitative} response.
+  \begin{itemize}
+    \item $H_0: \mu_1 - \mu_2 = 0$ and $H_A: \mu_1 - \mu_2 </>/\ne 0$
+    \item estimator of difference: $\overline{x}_1 - \overline{x}_2$
+    \item we can analyze $z$ or $t$ score for the sampling dist of the estimator (depending on if $\sigma$ known/$t$ dist valid)
+  \end{itemize}
+  \item inference for two proportions when wts relationship between \emph{two categorical} explantories and \emph{two categorical response}
+  \begin{itemize}
+    \item $H_0: p_1 - p_2 = 0$ and $H_A: p_1 - p_2 </>/\ne 0$
+    \item estimator of difference: $\hat{p}_1 - \hat{p}_2$
+    \item must analyze $z$ score. rmbr to check validity ($np, n(1-p) \ge 10$ for both explanatories)
+  \end{itemize}
+  \item one-way (one explanatory) ANOVA (ANalysis Of VAriance) test of means
+  \begin{itemize}
+    \item TODO group others accordingly like this, descr down here
+    \item at least \emph{3 categorical} explanatory $\rightarrow$ \emph{one quantitative} response (like better test of two means)
+    \item $H_0: \mu_1 = \mu_2 = \dots = \mu_k$ and $H_A:$ at least one $\mu$ is different
+    \item we test $F$ score. reqs: means must be from independant populations. random selection. independence (large pop). shape ($n\ge 30$). each population $\sigma$ is similar, all within factor of 2 is fine.
+  \end{itemize}
+  \item chi square ($\chi ^2$) test for contingency tables
+  \begin{itemize}
+    \item \emph{numerous} categorical $\rightarrow$ \emph{numerous} response (like better test of two proportions)
+    \item $H_0:$ no association between cat. and resp. and $H_A:$ there is an association between cat. and resp.
+    \item analyze $\chi^2$ score (fun fact: $\chi^2$ dist. is unimodal right skewed)
+    \begin{itemize}
+      \item expected cell = $\frac{\text{row total} \times \text{column total}}{\text{grand total}}$ (for the actual values, not percentages)
+      \item $\chi^2 = \sum \frac{(\text{observed} - \text{expected})^2}{\text{expected}}$ for all cells
+    \end{itemize}
+    \item reqs: independent cells ie each individual must be in only one cell; random selection; independence (large pop); shape (expected count $\ge 5$, use observed count if expected is not reported by software)
+    \item (what if shape not satisfied? in 36-200, group categories or remove one (be careful!). in later courses, use a distribution-free test)
+  \end{itemize}
 \end{itemize}
+TODO: independence condition for tests, if we alr know random sampling, is fulfilled by replacement or large pop compared to n. this is all that is needed.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% End of document body   %%
