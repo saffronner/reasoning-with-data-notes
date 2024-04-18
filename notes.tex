@@ -381,7 +381,7 @@ good luck on exam 2 $<$3
   \begin{itemize}
     \item ie: Hypothesis test says do not reject $H_0 \Leftrightarrow H_0$ value is inside confidence interval
   \end{itemize}
-  \item TODO formal template for writing this. an example on lec24 p5 says ``since the p value is not less than0.05, we do not reject the null hypo. [explain what this means]''
+  \item TODO formal template for writing this. an example on lec24 p5 says ``since the p value is (not) less than 0.05, we do (not) reject the null hypo. [explain what this means].'' do NOT say ``accept the null hypo.''
   \newpage
   \item T-Test for mean when sigma unknown
   \begin{itemize}
@@ -433,6 +433,22 @@ good luck on exam 2 $<$3
   \end{itemize}
 \end{itemize}
 TODO: independence condition for tests, if we alr know random sampling, is fulfilled by replacement or large pop compared to n. this is all that is needed.
+\begin{itemize}
+  \item test of slope (linear regression)
+  \begin{itemize}
+    \item \emph{quantitative} categorial $\rightarrow$ \emph{quantitative} response
+    \item population line: $Y=\beta_0+\beta_1 X$, sample line: $\hat{y}=b_0+b_1X$
+    \item no relationship $\iff \beta_1 = 0.$ thus,
+    \item $H_0: \beta_1=0$ and $H_\text{A}: \beta_1 < / > / \ne 0$
+    \item fun fact: test score is $t=\frac{\text{slope estimate}-\text{null for slope}}{\text{stderr of slope}} = \frac{b_1-0}{SE_\text{slope}}$
+    \item reqs: quant $\rightarrow$ quant, random, independence (no systemic deviation from line. check via look at scatterplot, or other tools), shape (large $n$), spread (a req that ANOVA also has) (check if vertical spread reasonably same at all $X$ values)
+    \item nonlinear?
+    \begin{itemize}
+      \item right skewed? try $x^{1/2}, x^{1/3}, \dots, \ln(x)$. $\ln$ should be of strictly greater than 1.
+      \item left skewed? try $x^2, x^3, \dots, e^x$
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% End of document body   %%
